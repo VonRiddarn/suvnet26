@@ -112,3 +112,119 @@
 // }
 
 // Console.WriteLine($"The sum of your numbers is: {_sum}.");
+
+/*
+ * Excercise 4
+ * 
+ * Tänk dig ett progam som ser ut så här när det körs: 
+
+	Ange en X-koordinat (1-5): 4
+	Ange en Y-koordinat (1-5): 3
+
+	y
+	5 *
+	4 *
+	3 *       X
+	2 *
+	1 *
+	0 * * * * * *
+	  0 1 2 3 4 5 x
+ 
+ * CREATE INT X
+ * CREATE INT Y
+ * LOOP(INF)
+ * 	GET USER IN
+ * 		IF is int
+ * 			IF IN RANGE (> 0 < 5)
+ * 				X = USER IN (INT)
+ * 				BREAK
+ * 			ELSE
+ * 				PRINT: "Number must be between 1 and 5."
+ * 		ELSE
+ * 			PRINT: "Must enter a number."
+ * [REPEAT FOR Y]
+ * 
+ * (Switching to my regular pseudo coding as this format makes my problem solving slower)
+ * 
+ * Print "y"
+ * new line
+ * Loop rows backwards (maxR--)
+ * 	Loop columns forwards (maxC). start -1 (for graphics)
+ * 		if col == -1: row
+ * 		if col == 0 || row == 0: *
+ * 		if col == X && row == Y: X
+ * 		else: " "
+ * new line
+ * " "
+ * loop through maxC forward, start at 0
+ * if col != maxC: col
+ * else: col + " x"
+*/
+
+// Board size (keep as single digit to not ruing graphics)
+const int X_SIZE = 7;
+const int Y_SIZE = 7;
+
+// Cache
+int _x, _y;
+
+// Force correct input X
+while (true)
+{
+	Console.WriteLine($"Enter X coord (1 - {X_SIZE}): ");
+	if (int.TryParse(Console.ReadLine(), out _x))
+		if (_x > 0 && _x <= X_SIZE)
+			break;
+		else
+			Console.WriteLine($"Coord must be between 1 - {X_SIZE}!");
+	else
+		Console.WriteLine("Must enter an integer.");
+}
+
+// Force correct input Y
+while (true)
+{
+	Console.WriteLine($"Enter Y coord (1 - {Y_SIZE}): ");
+	if (int.TryParse(Console.ReadLine(), out _y))
+		if (_y > 0 && _y <= Y_SIZE)
+			break;
+		else
+			Console.WriteLine($"Coord must be between 1 - {Y_SIZE}!");
+	else
+		Console.WriteLine("Must enter an integer.");
+}
+
+// Draw graphics
+Console.Clear();
+Console.WriteLine("y");
+for (int r = Y_SIZE; r >= 0; r--)
+{
+	for (int c = -1; c <= X_SIZE; c++)
+	{
+		if (c is -1)
+			Console.Write(r);
+		else if (c == 0 || r == 0)
+			Console.Write(" * ");
+		else if (c == _x && r == _y)
+			Console.Write(" X ");
+		else
+			Console.Write("   ");
+	}
+	Console.WriteLine();
+}
+
+for (int i = 0; i <= X_SIZE; i++)
+	Console.Write(i != X_SIZE ? $"  {i}" : $"  {i} x");
+
+/*
+ * Shorten challange (AKA TENARY HELL!!!!!)
+ * Inspired by teachers solution to see if I could replicate the result.
+ * Whackified by also adding the y-graphic into the tenary.
+*/
+// Draw graphics
+// Console.Clear();
+// for (int r = Y_SIZE + 1; r >= 0; r--, Console.WriteLine())
+// 	for (int c = -1; c <= X_SIZE; c++)
+// 		Console.Write(r > Y_SIZE && c is -1 ? "y" : c is -1 ? r : c == 0 && r <= Y_SIZE || r == 0 ? "*" : c == _x && r == _y ? "X" : " ");
+// for (int i = 0; i <= X_SIZE; i++)
+// 	Console.Write(i != X_SIZE ? $"  {i}" : $"  {i} x");

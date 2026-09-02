@@ -46,6 +46,39 @@
 /*
  * Excercise 2
  * 
+ * Tänk dig ett program där användaren matar in ett ord. Ordet visas på skärmen och användaren får mata in ytterligare ett ord. 
+ * Båda orden visas på skärmen osv. Detta fortsätter tills användaren matar in "sluta".
+ * 
+ * CREATE variable for WORDS (def: empty string)
+ * CREATE cached variable INPUT
+ * LOOP (INF)
+ * 		INPUT = USER IN
+ * 		IF "q"
+ * 			BREAK
+ * 		ELSE
+ * 			WORDS += INPUT
+ * 			PRINT WORDS
+*/
+
+// string _words = string.Empty;
+// string? _input;
+
+// while (true)
+// {
+// 	Console.Write("Enter a word (or \"q\" to exit): ");
+// 	_input = Console.ReadLine();
+
+// 	// Early return
+// 	if (_input is "q" or "Q")
+// 		break;
+
+// 	_words += $"{_input} ";
+// 	Console.WriteLine(_words);
+// }
+
+/*
+ * Excercise 3
+ * 
  * Skriv programmet för denna pseudokod
 		SKAPA en variabel som heter SUMMA och sätt den till 0
 		LOOPA oändligt
@@ -62,20 +95,20 @@
 		SKRIV UT "Summan av talen är: " + SUMMA
 */
 
-int sum = 0;
+// int _sum = 0;
 
-while (true)
-{
-	Console.Write("Enter a number (or \"sum\" to sumarize): ");
-	string? input = Console.ReadLine();
-	if (string.Equals(input, "sum", StringComparison.OrdinalIgnoreCase))
-		break;
-	else if (string.IsNullOrWhiteSpace(input))
-		Console.WriteLine("You must proivde an input!");
-	else if (int.TryParse(input, out int n))
-		sum += n;
-	else
-		Console.WriteLine("Not a valid number!");
-}
+// while (true)
+// {
+// 	Console.Write("Enter a number (or \"sum\" to sumarize): ");
+// 	string? input = Console.ReadLine();
+// 	if (string.Equals(input, "sum", StringComparison.OrdinalIgnoreCase))
+// 		break;
+// 	else if (string.IsNullOrWhiteSpace(input))
+// 		Console.WriteLine("You must proivde an input!");
+// 	else if (int.TryParse(input, out int n))
+// 		_sum += n;
+// 	else
+// 		Console.WriteLine("Not a valid number!");
+// }
 
-Console.WriteLine($"The sum of your numbers is: {sum}.");
+// Console.WriteLine($"The sum of your numbers is: {_sum}.");

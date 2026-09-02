@@ -62,3 +62,20 @@
 		SKRIV UT "Summan av talen är: " + SUMMA
 */
 
+int sum = 0;
+
+while (true)
+{
+	Console.Write("Enter a number (or \"sum\" to sumarize): ");
+	string? input = Console.ReadLine();
+	if (string.Equals(input, "sum", StringComparison.OrdinalIgnoreCase))
+		break;
+	else if (string.IsNullOrWhiteSpace(input))
+		Console.WriteLine("You must proivde an input!");
+	else if (int.TryParse(input, out int n))
+		sum += n;
+	else
+		Console.WriteLine("Not a valid number!");
+}
+
+Console.WriteLine($"The sum of your numbers is: {sum}.");

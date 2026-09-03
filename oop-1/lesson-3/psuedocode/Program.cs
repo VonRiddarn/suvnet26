@@ -201,9 +201,9 @@ for (int r = Y_SIZE; r >= 0; r--)
 {
 	for (int c = -1; c <= X_SIZE; c++)
 	{
-		if (c is -1)
+		if (c == -1)
 			Console.Write(r);
-		else if (c is 0 || r is 0)
+		else if (c == 0 || r == 0)
 			Console.Write(" * ");
 		else if (c == _x && r == _y)
 			Console.Write(" X ");
@@ -225,6 +225,6 @@ for (int i = 0; i <= X_SIZE; i++)
 // Console.Clear();
 // for (int r = Y_SIZE + 1; r >= 0; r--, Console.WriteLine())
 // 	for (int c = -1; c <= X_SIZE; c++)
-// 		Console.Write(r > Y_SIZE && c is -1 ? "y" : c is -1 ? r : c is 0 && r <= Y_SIZE || r is 0 ? " * " : c == _x && r == _y ? " X " : "   ");
+// 		Console.Write(r > Y_SIZE && c == -1 ? "y" : c == -1 ? r : c == 0 && r <= Y_SIZE || r == 0 ? " * " : c == _x && r == _y ? " X " : "   ");
 // for (int i = 0; i <= X_SIZE; i++)
 // 	Console.Write(i != X_SIZE ? $"  {i}" : $"  {i} x");

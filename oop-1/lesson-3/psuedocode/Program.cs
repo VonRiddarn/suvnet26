@@ -173,7 +173,7 @@ while (true)
 {
 	Console.WriteLine($"Enter X coord (1 - {X_SIZE}): ");
 	if (int.TryParse(Console.ReadLine(), out _x))
-		if (_x > 0 && _x <= X_SIZE)
+		if (_x is > 0 and <= X_SIZE)
 			break;
 		else
 			Console.WriteLine($"Coord must be between 1 - {X_SIZE}!");
@@ -186,7 +186,7 @@ while (true)
 {
 	Console.WriteLine($"Enter Y coord (1 - {Y_SIZE}): ");
 	if (int.TryParse(Console.ReadLine(), out _y))
-		if (_y > 0 && _y <= Y_SIZE)
+		if (_y is > 0 and <= Y_SIZE)
 			break;
 		else
 			Console.WriteLine($"Coord must be between 1 - {Y_SIZE}!");
@@ -201,7 +201,7 @@ for (int r = Y_SIZE; r >= 0; r--)
 {
 	for (int c = -1; c <= X_SIZE; c++)
 	{
-		if (c is -1)
+		if (c == -1)
 			Console.Write(r);
 		else if (c == 0 || r == 0)
 			Console.Write(" * ");
@@ -225,6 +225,6 @@ for (int i = 0; i <= X_SIZE; i++)
 // Console.Clear();
 // for (int r = Y_SIZE + 1; r >= 0; r--, Console.WriteLine())
 // 	for (int c = -1; c <= X_SIZE; c++)
-// 		Console.Write(r > Y_SIZE && c is -1 ? "y" : c is -1 ? r : c == 0 && r <= Y_SIZE || r == 0 ? "*" : c == _x && r == _y ? "X" : " ");
+// 		Console.Write(r > Y_SIZE && c == -1 ? "y" : c == -1 ? r : c == 0 && r <= Y_SIZE || r == 0 ? " * " : c == _x && r == _y ? " X " : "   ");
 // for (int i = 0; i <= X_SIZE; i++)
 // 	Console.Write(i != X_SIZE ? $"  {i}" : $"  {i} x");

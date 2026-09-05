@@ -1,0 +1,7 @@
+Hej, detta är en fil.
+Denna fil ska summeras.
+Med hur många rader? 
+Det är en bra fråga...
+Kanske fem? 
+Eller kanske sex? 
+Sju? Kanske inte.

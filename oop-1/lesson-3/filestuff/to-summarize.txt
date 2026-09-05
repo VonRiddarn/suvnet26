@@ -1,0 +1,10 @@
+Hej, detta är en fil.
+Denna fil ska summeras.
+Med hur många rader? 
+Det är en bra fråga...
+Kanske fem? 
+Eller kanske sex? 
+Sju? Kanske inte.
+Att summera en fil till åtta rader hade känts overkill, men det går.
+Nu börjar det bli jobbigt att komma på grejer att skriva.
+Hejdå!

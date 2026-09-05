@@ -109,11 +109,23 @@
  * Användaren gissar, datorn berättar om det blev rätt eller fel (ingen loop, bara enkel check).
 */
 
-Console.Write("Pick a number between 1-10: ");
-int _guess;
+// Console.Write("Pick a number between 1-10: ");
+// int _guess;
 
-while (true)
-	if (int.TryParse(Console.ReadLine(), out _guess))
-		break;
+// while (true)
+// 	if (int.TryParse(Console.ReadLine(), out _guess))
+// 		break;
 
-Console.WriteLine(_guess == Random.Shared.Next(1, 11) ? "Correct!" : "Wrong!");
+// Console.WriteLine(_guess == Random.Shared.Next(1, 11) ? "Correct!" : "Wrong!");
+
+
+/*
+ * Excercise 5
+ * 
+ * Slumpa mellan "sol", "regn", "snö", "molnigt".
+ * Kan utvidgas till att slumpa temperatur också.
+*/
+
+string[] _weather = ["sunny", "rain", "snow", "cloudy"];
+
+Console.WriteLine($"Current weather: {_weather[Random.Shared.Next(0, _weather.Length)]}.");

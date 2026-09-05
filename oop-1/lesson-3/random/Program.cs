@@ -71,32 +71,49 @@
  * Liknar slantsingling, fast med flera alternativ.
 */
 
-string[] _fortunes = [
-"A journey of a thousand miles begins with a single step.",
-"The best time to plant a tree was twenty years ago. The second best time is now.",
-"Fall seven times and stand up eight.",
-"Fortune favors the bold.",
-"It does not matter how slowly you go as long as you do not stop.",
-"The secret of getting ahead is getting started.",
-"Believe you can and you are halfway there.",
-"Happiness is not by chance, but by choice.",
-"Keep your face always toward the sunshine, and shadows will fall behind you.",
-"Whatever you are, be a good one.",
-"Tough times never last, but tough people do.",
-"Every day is a second chance.",
-"The only limit to our realization of tomorrow will be our doubts of today.",
-"Action is the foundational key to all success.",
-"A ship in harbor is safe, but that is not what ships are built for.",
-"Do not fear going forward slowly; fear only to stand still.",
-"The obstacle is the path.",
-"If you want the rainbow, you have to put up with the rain.",
-"Turn your wounds into wisdom.",
-"Opportunities do not happen, you create them.",
-"The mind is everything. What you think you become.",
-"You miss one hundred percent of the shots you do not take.",
-"Be the change that you wish to see in the world.",
-"Dream big and dare to fail.",
-"Your future is as bright as your faith."
-];
+// string[] _fortunes = [
+// "A journey of a thousand miles begins with a single step.",
+// "The best time to plant a tree was twenty years ago. The second best time is now.",
+// "Fall seven times and stand up eight.",
+// "Fortune favors the bold.",
+// "It does not matter how slowly you go as long as you do not stop.",
+// "The secret of getting ahead is getting started.",
+// "Believe you can and you are halfway there.",
+// "Happiness is not by chance, but by choice.",
+// "Keep your face always toward the sunshine, and shadows will fall behind you.",
+// "Whatever you are, be a good one.",
+// "Tough times never last, but tough people do.",
+// "Every day is a second chance.",
+// "The only limit to our realization of tomorrow will be our doubts of today.",
+// "Action is the foundational key to all success.",
+// "A ship in harbor is safe, but that is not what ships are built for.",
+// "Do not fear going forward slowly; fear only to stand still.",
+// "The obstacle is the path.",
+// "If you want the rainbow, you have to put up with the rain.",
+// "Turn your wounds into wisdom.",
+// "Opportunities do not happen, you create them.",
+// "The mind is everything. What you think you become.",
+// "You miss one hundred percent of the shots you do not take.",
+// "Be the change that you wish to see in the world.",
+// "Dream big and dare to fail.",
+// "Your future is as bright as your faith."
+// ];
 
-Console.WriteLine($"Master Oogway says: \"{_fortunes[Random.Shared.Next(0, _fortunes.Length)]}\"");
+// Console.WriteLine($"Master Oogway says: \"{_fortunes[Random.Shared.Next(0, _fortunes.Length)]}\"");
+
+
+/*
+ * Excercise 4
+ * 
+ * Datorn slumpar ett tal mellan 1–10.
+ * Användaren gissar, datorn berättar om det blev rätt eller fel (ingen loop, bara enkel check).
+*/
+
+Console.Write("Pick a number between 1-10: ");
+int _guess;
+
+while (true)
+	if (int.TryParse(Console.ReadLine(), out _guess))
+		break;
+
+Console.WriteLine(_guess == Random.Shared.Next(1, 11) ? "Correct!" : "Wrong!");

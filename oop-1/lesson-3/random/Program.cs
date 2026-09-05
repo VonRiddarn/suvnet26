@@ -126,6 +126,8 @@
  * Kan utvidgas till att slumpa temperatur också.
 */
 
+// Could use weather as a multiplier / weight for temp, but keeping scope low.
 string[] _weather = ["sunny", "rain", "snow", "cloudy"];
+int _temp = Random.Shared.Next(-20, 26);
 
-Console.WriteLine($"Current weather: {_weather[Random.Shared.Next(0, _weather.Length)]}.");
+Console.WriteLine($"Current weather: {_weather[Random.Shared.Next(0, _weather.Length)]}. Temp: {_temp}°C");

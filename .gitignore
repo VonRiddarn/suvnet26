@@ -62,3 +62,6 @@
 **/[Bb]uilds
 
 .vscode
+
+**/[Oo]bj/[Dd]ebug
+**/[Oo]bj/[Rr]elease

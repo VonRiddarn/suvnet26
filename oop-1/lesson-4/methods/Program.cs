@@ -6,11 +6,11 @@
  * Koden kan heta vad som helst, men tex kan den heta PrintHello.
 */
 
-// static void PrintMessage(string msg, int count)
-// {
-// 	for (int i = 0; i < count; i++)
-// 		Console.WriteLine(msg);
-// }
+static void PrintMessage(string msg, int count)
+{
+	for (int i = 0; i < count; i++)
+		Console.WriteLine(msg);
+}
 
 // PrintMessage("Hello world!", 3);
 
@@ -21,8 +21,8 @@
  * Skriver ut en sträng i stil med $"Hej {name}, hur mår du idag?" i konsolen.
 */
 
-// static void GreetPerson(string name) =>
-// 	Console.WriteLine($"Hello {name}, I hope you have a fantastic day!");
+static void GreetPerson(string name) =>
+	Console.WriteLine($"Hello {name}, I hope you have a fantastic day!");
 
 // Console.Write("Enter name: ");
 // GreetPerson(Console.ReadLine()!);
@@ -35,7 +35,7 @@
  * Skriv ett litet program som ber användaren skriva in sin inkomst, anropar CalculateTax med inkomsten och skriver ut siffran som metoder skickar tillbaka.
 */
 
-// static decimal CalculateTax(decimal amount) => amount * 0.3m;
+static decimal CalculateTax(decimal amount) => amount * 0.3m;
 
 // decimal _income;
 // while (true)
@@ -58,15 +58,15 @@
  * och slutligen skriver ut "Detta är ett annat vanligt meddelande".
 */
 
-// static void WriteWarning(string msg)
-// {
-// 	Console.ForegroundColor = ConsoleColor.White;
-// 	Console.BackgroundColor = ConsoleColor.Red;
-// 	Console.Write(msg);
+static void WriteWarning(string msg)
+{
+	Console.ForegroundColor = ConsoleColor.White;
+	Console.BackgroundColor = ConsoleColor.Red;
+	Console.Write(msg);
 
-// 	Console.ResetColor();
-// 	Console.WriteLine();
-// }
+	Console.ResetColor();
+	Console.WriteLine();
+}
 
 
 // Console.WriteLine("Normal message.");
@@ -93,7 +93,33 @@ static T ReadLine<T>(string msg) where T : IParsable<T>
 	}
 }
 
-int _age = ReadLine<int>("Enter your age: ");
-float _percent = ReadLine<float>("How sure are you? ");
+// int _age = ReadLine<int>("Enter your age: ");
+// float _percent = ReadLine<float>("How sure are you? ");
 
-Console.WriteLine($"You are: {_age} years old (you're {_percent}% sure at least).");
+// Console.WriteLine($"You are: {_age} years old (you're {_percent}% sure at least).");
+
+/* 
+ * Excercise 6
+ * 
+ * Tar en sträng som parameter (den ska användas som prompt när användaren ska mata in en e-postadress).
+ * Returnerar en sträng som användaren matat in.
+ * (Svårare) Om användaren matar in något som inte är en giltig e-postadress 
+ * (dvs. den innehåller inte ett @-tecken), ska metoden skriva ut ett felmeddelande och fråga igen tills användaren matar in en giltig e-postadress.
+*/
+
+// Obv these are not enough checks to be safe, but it's relatively accurate for a school project :P
+static bool ValidateEmail(string email)
+{
+	if (string.IsNullOrWhiteSpace(email) || email.Contains(' '))
+		return false;
+
+	string[] tokens = email.Split('@');
+
+	return tokens.Length == 2 && !string.IsNullOrWhiteSpace(tokens[0]) && !tokens[1].StartsWith('.') && !tokens[1].EndsWith('.') && tokens[1].Contains('.');
+}
+
+Console.Write("Enter email: ");
+if (ValidateEmail(Console.ReadLine()!))
+	Console.WriteLine("An email has been sent!");
+else
+	WriteWarning("Email not valid.");

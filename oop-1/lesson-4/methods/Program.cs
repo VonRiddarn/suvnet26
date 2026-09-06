@@ -6,11 +6,11 @@
  * Koden kan heta vad som helst, men tex kan den heta PrintHello.
 */
 
-static void PrintMessage(string msg, int count)
-{
-	for (int i = 0; i < count; i++)
-		Console.WriteLine(msg);
-}
+// static void PrintMessage(string msg, int count)
+// {
+// 	for (int i = 0; i < count; i++)
+// 		Console.WriteLine(msg);
+// }
 
 // PrintMessage("Hello world!", 3);
 
@@ -21,8 +21,8 @@ static void PrintMessage(string msg, int count)
  * Skriver ut en sträng i stil med $"Hej {name}, hur mår du idag?" i konsolen.
 */
 
-static void GreetPerson(string name) =>
-	Console.WriteLine($"Hello {name}, I hope you have a fantastic day!");
+// static void GreetPerson(string name) =>
+// 	Console.WriteLine($"Hello {name}, I hope you have a fantastic day!");
 
 // Console.Write("Enter name: ");
 // GreetPerson(Console.ReadLine()!);
@@ -35,7 +35,7 @@ static void GreetPerson(string name) =>
  * Skriv ett litet program som ber användaren skriva in sin inkomst, anropar CalculateTax med inkomsten och skriver ut siffran som metoder skickar tillbaka.
 */
 
-static decimal CalculateTax(decimal amount) => amount * 0.3m;
+// static decimal CalculateTax(decimal amount) => amount * 0.3m;
 
 // decimal _income;
 // while (true)
@@ -82,16 +82,16 @@ static void WriteWarning(string msg)
  * ska metoden skriva ut ett felmeddelande och fråga igen tills användaren matar in ett giltigt heltal.
 */
 
-static T ReadLine<T>(string msg) where T : IParsable<T>
-{
-	while (true)
-	{
-		Console.Write(msg);
-		if (T.TryParse(Console.ReadLine()!, null, out T? result))
-			if (result is not null)
-				return result;
-	}
-}
+// static T ReadLine<T>(string msg) where T : IParsable<T>
+// {
+// 	while (true)
+// 	{
+// 		Console.Write(msg);
+// 		if (T.TryParse(Console.ReadLine()!, null, out T? result))
+// 			if (result is not null)
+// 				return result;
+// 	}
+// }
 
 // int _age = ReadLine<int>("Enter your age: ");
 // float _percent = ReadLine<float>("How sure are you? ");

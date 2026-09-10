@@ -6,6 +6,12 @@ public static partial class Cah
 {
 	public static class Input
 	{
+		public static string ReadLine(string prompt = "", bool clear = false)
+		{
+			ClearAndPrompt(prompt, clear);
+			return Console.ReadLine() ?? string.Empty;
+		}
+
 		/// <summary>
 		/// Lock the user into an infinite loop until they provide a parseable string.
 		/// </summary>
@@ -71,12 +77,14 @@ public static partial class Cah
 		//		HELPERS
 		// ----- ----- -----
 
-		static void ClearAndPrompt(string prompt, bool clear)
+		static void ClearAndPrompt(string? prompt, bool clear)
 		{
 			if (clear)
 				Console.Clear();
 
-			Console.Write(prompt);
+			// Whitespace is ok.
+			if (!string.IsNullOrEmpty(prompt))
+				Console.Write(prompt);
 		}
 	}
 }

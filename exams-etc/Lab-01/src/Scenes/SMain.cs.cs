@@ -1,3 +1,5 @@
+using ConsoleAtHome;
+
 class SMain : IScene
 {
 	public void Enter() { }
@@ -12,9 +14,7 @@ class SMain : IScene
 			Console.WriteLine("1) Beräkna frakt för ett paket");
 			Console.WriteLine("2) Beräkna frakt för flera paket från fil");
 			Console.WriteLine("3) Avsluta\n");
-			Console.Write("Val: ");
-
-			string input = Console.ReadLine()!;
+			string input = Cah.Input.ReadLine("Val: ");
 
 			switch (input)
 			{

@@ -13,6 +13,9 @@ class Program
 /*
 NOTES FOR ASSIGNMENT BOARD (Clean before posting on page): 
 
+ConsoleAtHome ligger i mappen "lib" men är inte ett externt bibliotek.
+Det är en lathund jag skrev för mig själv igår kväll (2026-09-10).
+Den finns på GH här: https://github.com/VonRiddarn/console-at-home/tree/main
 
 Man kan argumentera för att en singleton som scene manager inte är så clean.
 Detta är pga tidspress. Tror att ett genomtänkt DI system hade varit bättre.

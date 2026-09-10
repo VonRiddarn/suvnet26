@@ -19,7 +19,7 @@ class SMain : IScene
 			switch (input)
 			{
 				case "1":
-					return new(Scenes.OrderSingle, true);
+					return new(SceneRepository.OrderSingle, true);
 				case "3":
 					return new(null);
 				default:

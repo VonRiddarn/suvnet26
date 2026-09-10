@@ -5,6 +5,8 @@ class SMain : IScene
 		Loop();
 	}
 
+	public void Exit() { }
+
 	public void Loop()
 	{
 		Console.WriteLine("VÄLKOMMEN TILL LASSES LAST 1.0\n");
@@ -19,10 +21,5 @@ class SMain : IScene
 		{
 			// Do freaky stuff here :* 
 		}
-	}
-
-	public void Exit()
-	{
-		throw new NotImplementedException();
 	}
 }

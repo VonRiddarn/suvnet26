@@ -2,12 +2,13 @@ class SMain : IScene
 {
 	public void Enter()
 	{
-		Loop();
+		while (true)
+			Loop();
 	}
 
 	public void Exit() { }
 
-	public void Loop()
+	static void Loop()
 	{
 		Console.WriteLine("VÄLKOMMEN TILL LASSES LAST 1.0\n");
 		Console.WriteLine("1) Beräkna frakt för ett paket");
@@ -19,7 +20,12 @@ class SMain : IScene
 
 		switch (input)
 		{
-			// Do freaky stuff here :* 
+			case "1":
+				SceneManager.SwitchScene(Scenes.OrderSingle);
+				break;
+			default:
+				Console.WriteLine("Fel val!");
+				break;
 		}
 	}
 }

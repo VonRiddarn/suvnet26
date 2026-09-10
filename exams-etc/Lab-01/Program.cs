@@ -29,4 +29,5 @@ Just nu kollar vi inte om den nuvarande menyn bör vara unik osv. Det är medvet
 
 
 10.19 : Fungerande state machine för menyer!!! Lesfuggin goo
+11.21 : Fungerande state machine för scener (på riktigt)!!! Lesfuggingoo
  */

@@ -7,6 +7,8 @@ class Program
 	static void Main()
 	{
 		SceneManager.SwitchScene(Scenes.Main);
+
+		Console.WriteLine("Appen avslutades normalt!");
 	}
 }
 

@@ -1,17 +1,14 @@
 class SOrderSingle : IScene
 {
-	public void Enter()
-	{
-		Loop();
-	}
+	public void Enter() { }
 
 	public void Exit() { }
 
-	static void Loop()
+	public ExitContext Run()
 	{
 		Console.WriteLine("Ayo, wassup! Imma head back to the menu once you press ENTER dawg.");
 		Console.ReadLine();
 
-		SceneManager.GoBack();
+		return new(null);
 	}
 }

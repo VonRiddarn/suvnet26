@@ -11,14 +11,32 @@ static class SceneManager
 
 	public static void SwitchScene(IScene newScene, bool keepOld = false)
 	{
-		if (_sceneHistory.Count > 0 && !keepOld)
+		bool isCurrent = _sceneHistory.Count > 0 && _sceneHistory.Peek() == newScene;
+
+		if (_sceneHistory.Count > 0 && !isCurrent && !keepOld)
 			_sceneHistory.Pop()?.Exit();
 
-		_sceneHistory.Push(newScene);
+		if (!isCurrent)
+			_sceneHistory.Push(newScene);
+
 		_sceneHistory.Peek().Enter();
+
+		// Run the new scene and store the exit context in ec
+		var ec = _sceneHistory.Peek().Run();
+
+		// If we are exiting to a new scene, we want to switch scene.
+		// This can be a dive or replacement, hence the keepAlive passthrough.
+		// If it is null, we assume backwards movement
+		if (ec.NewScene != null)
+			SwitchScene(ec.NewScene, ec.KeepAlive);
+		else if (_sceneHistory.Count > 1)
+		{
+			_sceneHistory.Pop();
+			SwitchScene(_sceneHistory.Peek());
+		}
 	}
 
-	public static void GoBack()
+	static void GoBack()
 	{
 		if (_sceneHistory.Count == 1)
 			return;

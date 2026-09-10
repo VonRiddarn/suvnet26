@@ -6,6 +6,7 @@
     <RootNamespace>Lab_01</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<NoWarn>$(NoWarn);IDE0130</NoWarn>
   </PropertyGroup>
 
 </Project>

@@ -1,47 +1,39 @@
 static class SceneManager
 {
-	static Stack<IScene> _sceneHistory = [];
+	static readonly Stack<IScene> _sceneHistory = [];
 
-	public static void ResetHstory(IScene scene)
+	public static void Initialize(IScene startScene)
 	{
-		_sceneHistory = [];
-		_sceneHistory.Push(scene);
-		_sceneHistory.Peek().Enter();
-	}
+		// First initialize
+		_sceneHistory.Push(startScene);
+		startScene.Enter();
 
-	public static void SwitchScene(IScene newScene, bool keepOld = false)
-	{
-		bool isCurrent = _sceneHistory.Count > 0 && _sceneHistory.Peek() == newScene;
-
-		if (_sceneHistory.Count > 0 && !isCurrent && !keepOld)
-			_sceneHistory.Pop()?.Exit();
-
-		if (!isCurrent)
-			_sceneHistory.Push(newScene);
-
-		_sceneHistory.Peek().Enter();
-
-		// Run the new scene and store the exit context in ec
-		var ec = _sceneHistory.Peek().Run();
-
-		// If we are exiting to a new scene, we want to switch scene.
-		// This can be a dive or replacement, hence the keepAlive passthrough.
-		// If it is null, we assume backwards movement
-		if (ec.NewScene != null)
-			SwitchScene(ec.NewScene, ec.KeepAlive);
-		else if (_sceneHistory.Count > 1)
+		// When we have a scene in the stack, keep running the last item
+		while (_sceneHistory.Count > 0)
 		{
-			_sceneHistory.Pop();
-			SwitchScene(_sceneHistory.Peek());
+			var currentScene = _sceneHistory.Peek();
+
+			var ec = currentScene.Run();
+
+			// If we send back a scen context, check if we should kill the old context
+			// And push the new one onto the stack
+			// Else (we sent a null scnee context) pop the stack and initialize the previous scene
+			// if we have scenes left
+			if (ec.NewScene != null)
+			{
+				if (!ec.KeepInHistory)
+					_sceneHistory.Pop()?.Exit();
+
+				_sceneHistory.Push(ec.NewScene);
+				ec.NewScene.Enter();
+			}
+			else
+			{
+				_sceneHistory.Pop()?.Exit();
+
+				if (_sceneHistory.Count > 0)
+					_sceneHistory.Peek().Enter();
+			}
 		}
-	}
-
-	static void GoBack()
-	{
-		if (_sceneHistory.Count == 1)
-			return;
-
-		_sceneHistory.Pop();
-		_sceneHistory.Peek()?.Enter();
 	}
 }

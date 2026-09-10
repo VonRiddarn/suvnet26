@@ -1,5 +1,5 @@
-struct ExitContext(IScene? newScene, bool keepAlive = false)
+struct ExitContext(IScene? newScene, bool keepInHistory = false)
 {
 	public IScene? NewScene = newScene;
-	public bool KeepAlive = keepAlive;
+	public bool KeepInHistory = keepInHistory;
 }
